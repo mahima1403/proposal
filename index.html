@@ -1,0 +1,85 @@
+echo "# proposal" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/mahima1403/proposal.git
+git push -u origin main
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Do You Love Me?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffe4e1;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #e91e63;
+    }
+    #buttons {
+      margin-top: 30px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      margin: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #yesBtn {
+      background-color: #4caf50;
+      color: white;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="question">DO YOU LOVE ME?</h1>
+  <div id="buttons">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const question = document.getElementById("question");
+
+    let noClickCount = 0;
+
+    yesBtn.onclick = () => {
+      question.textContent = "I LOVE YOU TOO ❤️💕";
+      
+      document.getElementById("buttons").style.display = "none";
+    };
+
+    noBtn.onclick = () => {
+      noClickCount++;
+      if (noClickCount < 3) {
+        question.textContent = "Please say yes 😢";
+      } else {
+        question.textContent = "Please say yes na please please please 😭";
+        // Move the "No" button randomly
+        const x = Math.floor(Math.random() * window.innerWidth * 0.8);
+        const y = Math.floor(Math.random() * window.innerHeight * 0.6);
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+      }
+    };
+  </script>
+
+</body>
+</html>
